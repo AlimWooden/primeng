@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CheckboxDemo} from './checkboxdemo';
 import {CheckboxDemoRoutingModule} from './checkboxdemo-routing.module';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -10,7 +10,8 @@ import {CodeHighlighterModule} from 'primeng/codehighlighter';
 @NgModule({
 	imports: [
 		CommonModule,
-        FormsModule,
+		FormsModule,
+		ReactiveFormsModule,
 		CheckboxDemoRoutingModule,
         CheckboxModule,
         TabViewModule,

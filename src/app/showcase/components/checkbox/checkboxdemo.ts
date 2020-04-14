@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     templateUrl: './checkboxdemo.html',
@@ -16,9 +17,32 @@ import {Component} from '@angular/core';
 })
 export class CheckboxDemo {
 
-    selectedCities: string[] = [];
+    formBuilder: FormBuilder = new FormBuilder();
+    array = new FormArray([
+        this.addFormGroup(), this.addFormGroup(), this.addFormGroup()
+    ]);
+
+ selectedCities: string[] = ['Jimmy', 'Dean'];
 
     selectedCategories: string[] = ['Technology', 'Sports'];
-    
+
     checked: boolean = false;
+
+    public checkoruncheck() {
+        console.log('In method');
+        this.checked = !this.checked;
+    }
+
+    addFormGroup(): FormGroup{
+        return this.formBuilder.group({
+            object: new FormControl({title: 'Jimmy', id: 1234}),
+            title: new FormControl('Jimmy'),
+            switch: new FormControl(true)
+        });
+    }
+
+    addFormControl(): FormControl{
+        return new FormControl('Jimmy');
+    }
+
 }

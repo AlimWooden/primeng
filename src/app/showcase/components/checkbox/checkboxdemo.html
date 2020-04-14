@@ -27,6 +27,18 @@
     
     <h3>Boolean - {{checked}}</h3>
     <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+
+    <h3>Boolean with onChange - {{checked}}</h3>
+    <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+    <button (click)=checkoruncheck()>Button</button>
+
+        <h3>Checkbox with FormControl</h3>
+    <div 
+    *ngFor="let control of array.controls; let i = index;">
+    <div [formGroup]="control">
+        <p-checkbox label={{control.controls.title.value}}></p-checkbox>
+    </div>
+</div>
 </div>
 
 <div class="content-section documentation">
